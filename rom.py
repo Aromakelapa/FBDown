@@ -22,7 +22,7 @@ try:
     os.mkdir('lib')
 except:
     pass
-with open('lib/index.html', encoding = 'UTF-8') as file:
+with open('lib/index.html', 'w', encoding = 'UTF-8') as file:
     file.write(soup)
     file.close()
 
