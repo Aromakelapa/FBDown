@@ -6,7 +6,7 @@
 ```
 git clone https://github.com/Aromakelapa/FBDown.git
 cd FBDown
-chmod +x start.sh
+chmod +x first.sh
 sh first.sh
 ```
 > Jika sudah menjalankan Command Line di atas untuk pertama kali, kedua kali dan seterusnya tinggal jalankan command di bawah.  
