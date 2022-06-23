@@ -13,7 +13,7 @@ sleep(1)
 rUrl = url.replace('www', 'mbasic', 1)
 r = requests.get(rUrl)
 
-print('Status : ' + r.status.code)
+print('Status : ' + r.status_code)
 print()
 
 soup = BeautifulSoup(r.text, 'xml').prettify()
