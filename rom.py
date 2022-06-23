@@ -4,19 +4,19 @@ import requests
 import os
 
 
-url = input('URL Facebook Video : ')
+url = input('\nURL Facebook Video : ')
 # print(rUrl)
 
-print('Silahkan tunggu..')
+print('\nSilahkan tunggu..')
 sleep(1)
 
 rUrl = url.replace('www', 'mbasic', 1)
 r = requests.get(rUrl)
 
-print('Status : ', r.status_code)
+print('\nStatus : ', r.status_code)
 print()
 
-soup = BeautifulSoup(r.text, 'xml').prettify()
+soup = BeautifulSoup(r.text, 'html.parser').prettify()
 
 try:
     os.mkdir('lib')
@@ -27,15 +27,15 @@ with open('lib/index.html', 'w', encoding = 'UTF-8') as file:
     file.close()
 
 index = open('lib/index.html').read()
-scrap = BeautifulSoup(index, 'xml')
+scrap = BeautifulSoup(index, 'html.parser')#.div['ca']
 
-__link__ = scrap.find('div', 'ca')
-src = __link__.find('a')['href']
-
+linkk = scrap.find('div', 'ca')
+src = scrap.find('a')['href']
+fSrc = 'https://mbasic.facebook.com' + src
 sleep(1)
-print('Video Link :\n', src)
+print('Video Link :\n', fSrc)
 
 def OpenLink(link):
     os.system("termux-open-url \"" + link + "\"")
 
-OpenLink(src)
+OpenLink(fSrc)
